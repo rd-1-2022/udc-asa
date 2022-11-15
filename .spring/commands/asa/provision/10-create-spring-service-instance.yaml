@@ -1,0 +1,12 @@
+---
+action:
+  exec:
+    args: 
+      - az
+      - spring 
+      - create
+      - --resource-group
+      - '{{resource-group}}'
+      - --name
+      - 'si-{{user-name}}'
+---

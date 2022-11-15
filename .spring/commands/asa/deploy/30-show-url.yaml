@@ -1,0 +1,8 @@
+---
+action:
+  exec:
+    args: 
+      - echo
+      - -e 
+      - "\nThe application is available at https://{{resource-group}}-{{project-name}}.azuremicroservices.io/greeting"
+---
