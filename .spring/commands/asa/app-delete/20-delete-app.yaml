@@ -1,0 +1,15 @@
+---
+action:
+  exec:
+    args: 
+      - az
+      - spring
+      - app
+      - delete
+      - --resource-group
+      - '{{resource-group}}'
+      - --service
+      - 'si-{{user-name}}'
+      - --name 
+      - '{{project-name}}'      
+---
