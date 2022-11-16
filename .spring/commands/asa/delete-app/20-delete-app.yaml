@@ -11,5 +11,5 @@ action:
       - --service
       - 'si-{{user-name}}'
       - --name 
-      - '{{project-name}}'      
+      - '{{project-name}}'
 ---
