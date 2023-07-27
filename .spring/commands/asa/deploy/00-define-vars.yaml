@@ -1,0 +1,16 @@
+actions:
+  - if: "#{ ['functions'].varNotDefined('resource-group') }"
+    vars:
+      questions:
+        - question:
+          name: resource-group  
+          label: Select a Resource Group
+          type: dropdown
+          options:
+            exec:
+              command: az group list 
+              json-path: $[*].name
+  - if: "#{ ['functions'].varNotDefined('service-instance') }"
+    vars:
+      data:
+        service-instance: si-{{user-name}}              

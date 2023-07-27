@@ -1,9 +1,4 @@
 actions:
   - exec:
-      define:
-        name: resource-group
-        jsonPath: $[0].name
-      command: az group list
-  - exec:
       command: az spring app delete --resource-group {{resource-group}} --service si-{{user-name}} --name {{project-name}}
     

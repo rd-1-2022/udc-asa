@@ -1,0 +1,8 @@
+actions:
+  - if: "#{  ! ['functions'].run('az spring list').contains( ['service-instance'] ) }"
+    exec:
+      # Create the service instance, note that resource-group was selected from those already available
+      command: az spring create --resource-group {{resource-group}} --name {{service-instance}}
+  - exec:
+      # Create an Azure Spring Apps instance
+      command: az spring app create --name {{project-name}} --resource-group {{resource-group}} --service {{service-instance}} --assign-endpoint true      

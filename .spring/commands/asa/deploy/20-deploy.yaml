@@ -1,0 +1,5 @@
+actions:
+  - exec:
+      command: az spring app deploy --resource-group {{resource-group}} --service {{service-instance}} --name {{project-name}} --artifact-path {{artifact-path}} --runtime-version Java_{{java-version}}
+  - exec:
+      command: 'echo -e "\nThe application is available at https://si-{{user-name}}-{{project-name}}.azuremicroservices.io/"'      
