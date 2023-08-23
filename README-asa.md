@@ -2,8 +2,10 @@
 
 This repository contains three commands to help you deploy a Spring application to Spring Azure Apps.
 
-* spring asa provision
 * spring asa deploy
+
+When you are done, you can clean up using the command
+
 * spring asa delete-app
 
 ## Prerequisites
@@ -45,16 +47,11 @@ Refer to the [Concept guide on App and deployment in Azure Spring Apps](https://
 
 ## Command Overview
 
-### `spring asa provision`
+### `spring asa deploy`
 
-This command will use the first resource group that is returned from the command `az group list`.
+This command will ask you on the command line which resource group you want to use
 
-Using that resource group, an Azure Spring Service instance will be defined using a command such as
-
-```
-az spring create --resource-group scdf-demo --name si-mark
-```
-The `--name` option is the `service-instance-name` and is templated as the variable `si-{{user-name}}` so that it will be unique to you.
+Select the group that you want to use, and it will be stored as a variable for later user.
 
 The command will then create a new Azure Spring Application in the Azure Spring Service instance using a command such as
 
@@ -65,9 +62,7 @@ az spring app create --resource-group scdf-demo --service si-mark --name demo --
 The `--name` option is set to Maven model variable `project-name`.
 In this case the name is `demo`
 
-### `spring asa deploy`
-
-This command will deploy the .jar file to the Spring Application that was previously provisioned using a command such as
+The command will then deploy the app using something similar to
 
 ``` 
 az spring app deploy --resource-group scdf-demo --service si-mark --name demo --artifact-path /home/mark/testing/demo/target/demo-0.0.1-SNAPSHOT.jar
